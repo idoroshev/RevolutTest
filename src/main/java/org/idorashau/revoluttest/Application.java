@@ -1,9 +1,7 @@
-package org.idorashau;
+package org.idorashau.revoluttest;
 
 import com.sun.net.httpserver.HttpServer;
-import org.idorashau.revoluttest.config.Configuration;
 import org.idorashau.revoluttest.dto.Account;
-import org.idorashau.revoluttest.dto.TransferRequest;
 import org.idorashau.revoluttest.handlers.AccountHandler;
 import org.idorashau.revoluttest.handlers.TransferHandler;
 import org.idorashau.revoluttest.repos.AccountRepository;
@@ -12,7 +10,9 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.UUID;
 
-import static org.idorashau.revoluttest.config.Configuration.*;
+import static org.idorashau.revoluttest.config.Configuration.getAccountMonitor;
+import static org.idorashau.revoluttest.config.Configuration.getAccountRepository;
+import static org.idorashau.revoluttest.config.Configuration.getObjectMapper;
 
 public class Application {
 
@@ -30,7 +30,7 @@ public class Application {
         createAccounts(getAccountRepository());
 
         AccountHandler accountHandler = new AccountHandler(getAccountRepository(), getObjectMapper());
-        TransferHandler transferHandler = new TransferHandler(getAccountRepository(), getObjectMapper());
+        TransferHandler transferHandler = new TransferHandler(getAccountRepository(), getObjectMapper(), getAccountMonitor());
         server.createContext("/api/accounts", accountHandler::getAccounts);
         server.createContext("/api/transfer", transferHandler::transfer);
 

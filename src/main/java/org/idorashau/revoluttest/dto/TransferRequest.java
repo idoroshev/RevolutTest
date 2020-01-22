@@ -4,27 +4,27 @@ import java.util.UUID;
 
 public class TransferRequest {
 
-    private UUID sourceAccountId;
-    private UUID destinationAccountId;
+    private UUID sourceId;
+    private UUID destinationId;
     private long quantity;
 
     public TransferRequest() {
     }
 
-    public UUID getSourceAccountId() {
-        return sourceAccountId;
+    public UUID getSourceId() {
+        return sourceId;
     }
 
-    public void setSourceAccountId(UUID sourceAccountId) {
-        this.sourceAccountId = sourceAccountId;
+    public void setSourceId(UUID sourceId) {
+        this.sourceId = sourceId;
     }
 
-    public UUID getDestinationAccountId() {
-        return destinationAccountId;
+    public UUID getDestinationId() {
+        return destinationId;
     }
 
-    public void setDestinationAccountId(UUID destinationAccountId) {
-        this.destinationAccountId = destinationAccountId;
+    public void setDestinationId(UUID destinationId) {
+        this.destinationId = destinationId;
     }
 
     public long getQuantity() {
