@@ -11,6 +11,12 @@ public class TransferRequest {
     public TransferRequest() {
     }
 
+    public TransferRequest(UUID sourceId, UUID destinationId, long quantity) {
+        this.sourceId = sourceId;
+        this.destinationId = destinationId;
+        this.quantity = quantity;
+    }
+
     public UUID getSourceId() {
         return sourceId;
     }
